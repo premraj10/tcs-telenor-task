@@ -32,7 +32,7 @@ public class DataInsert implements CommandLineRunner {
         body.add("file", getTestFile());
 
         HttpEntity<MultiValueMap<String, Object>> requestEntity = new HttpEntity<>(body, headers);
-        String serverUrl = "http://localhost:8080/upload";
+        String serverUrl = "http://localhost:8081/upload";
         RestTemplate restTemplate = new RestTemplate();
         ResponseEntity<String> response = restTemplate.postForEntity(serverUrl, requestEntity, String.class);
         log.info("Response code: " + response.getStatusCode());
