@@ -68,7 +68,7 @@ Following are the commands that are needed to run from project root directory
 
     $ mvn clean package
     $ docker build -t springio/gs-spring-boot-docker .
-    $ docker run -p 8081:8080 -t springio/gs-spring-boot-docker
+    $ docker run -p 8081:8081 -t springio/gs-spring-boot-docker
     
 After that one can test with sample requests. Example is given in the following section. After finish run following commands:
     
