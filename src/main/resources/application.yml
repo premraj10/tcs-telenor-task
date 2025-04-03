@@ -1,2 +1,47 @@
 server:
-  port: 8082
+  port: 8081
+
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: update
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  h2:
+    console:
+      enabled: true
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    env:
+      show-values: ALWAYS
+
+resilience4j:
+  circuitbreaker:
+    instances:
+      myService:
+        failureRateThreshold: 50   # Open circuit if 50% failures
+        waitDurationInOpenState: 10s  # Time before retrying after failure
+        minimumNumberOfCalls: 5   # Minimum calls before enabling Circuit Breaker
+        slidingWindowSize: 10     # Monitor last 10 calls for failure rate
+  ratelimiter:
+    instances:
+      myService:
+        limitForPeriod: 3         # Allow 3 requests per refresh cycle
+        limitRefreshPeriod: 10s   # Refresh every 10 seconds
+        timeoutDuration: 1s       # Wait up to 1s if limit exceeded
+  retry:
+    instances:
+      myService:
+        maxAttempts: 3            # Retry failed calls 3 times
+        waitDuration: 2s          # Wait 2 seconds between retries

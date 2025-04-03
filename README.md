@@ -1,9 +1,13 @@
 https://docs.spring.io/spring-boot/docs/current/reference/html/application-properties.html
 
 http://localhost:8081/h2-console
+
 http://localhost:8081/swagger-ui.html #https://github.com/springdoc/springdoc-openapi
+
 http://localhost:8081/actuator #https://docs.spring.io/spring-boot/docs/current/actuator-api/htmlsingle/
+
 http://localhost:8081/actuator/health
+http://localhost:8081/actuator/env
 
 The purpose of this assignment is to give you an opportunity to demonstrate some code.
 The requirement is simple, but it is important to demonstrate clean code and good test coverage.
